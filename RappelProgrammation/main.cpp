@@ -8,17 +8,29 @@ int main(){
     auto aDeviner(0); //variable contenant le chiffre que l'utilisateur doit deviner
     auto nombre(0); // variable contenant le chiffre que l'utilisateur rentre
 
+    cout <<"Rentrez le chiffre a deviner :";
+
     cin >> aDeviner;
 
     cout << "Devinez le nombre : ";
     cin >> nombre;
 
-    if (nombre == aDeviner){ // si le nombre rentrer est egal au nombre a deviner affiche vous avez gagne
-        cout << "Vous avez gagne";
+    while (nombre != aDeviner){
+
+         if (nombre < aDeviner){
+            cout <<"C'est plus !";
+            cout << "Devinez le nombre : ";
+            cin >> nombre;
+        }
+        else if (nombre > aDeviner){
+            cout <<"C'est moins !";
+            cout << "Devinez le nombre : ";
+            cin >> nombre;
+        }
+
     }
-    else { // si le nombre rentrer est inferieur ou supérieur au nombre a deviner affiche vous avez perdu
-        cout << "Vous avez perdu";
-    }
+
+    cout << "Vous avez gagne !";
 
 
 
