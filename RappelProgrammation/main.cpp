@@ -10,6 +10,8 @@ enum class CHOIXMENU {
 
 CHOIXMENU demanderChoixMenu();
 
+
+
 const auto NOMBRE_MAX (10'000);
 const auto NOMBRE_MIN (0);
 
@@ -29,15 +31,19 @@ CHOIXMENU demanderChoixMenu(){
     }
 }
 
+int * jouerTroisPartie () {
+
+    int aDeviner [3] = { 208, 52, 1984 };
+    return aDeviner;
+
+
+}
+
 int main(){
 
 cout << "Bienvenue au juste prix" << endl;
 cout << static_cast<char>(CHOIXMENU::JOUER) <<" : jouer" << endl;
 cout <<static_cast<char>(CHOIXMENU::QUITTER) <<" : quitter" << endl;
-
-
-
-
 
 auto choix{CHOIXMENU::JOUER}; // autre type, apostrophe simple caractère
 
