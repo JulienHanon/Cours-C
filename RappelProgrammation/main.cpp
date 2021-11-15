@@ -2,18 +2,17 @@
 
 using namespace std;
 
-enum class choixmenu {
-
-//    JOUER = 'j';
-   // QUITTER = 'q';
+enum class CHOIXMENU {
+    JOUER = 'j',
+    QUITTER = 'q'
 };
 
 
 int main(){
 
 cout << "Bienvenue au juste prix" << endl;
-cout << "j: jouer" << endl;
-cout << "q: quitter" << endl;
+cout << static_cast<char>(CHOIXMENU::JOUER) <<" : jouer" << endl;
+cout <<static_cast<char>(CHOIXMENU::QUITTER) <<" : quitter" << endl;
 
 const auto NOMBRE_MAX (10'000);
 const auto NOMBRE_MIN (0);
@@ -34,30 +33,24 @@ switch (choix)
             do
             {
                 cin >> proposition;
-                if (proposition >= NOMBRE_MIN && proposition < NOMBRE_MAX)
-                {
+                if (proposition >= NOMBRE_MIN && proposition < NOMBRE_MAX){
                     nombreTentatives++;
-                if (proposition == aDeviner)
-                {
-                    cout << "Bravo! " << endl;
-                }
-                else if (proposition > aDeviner)
-                {
-                    cout << "C'est moins ! " << endl;
-                }
-                else
-                {
-                    cout << "C'est plus ! " << endl;
-                }
+                    if (proposition == aDeviner){
+                        cout << "Bravo! " << endl;
+                    }
+                    else if (proposition > aDeviner){
+                        cout << "C'est moins ! " << endl;
+                    }
+                    else{
+                        cout << "C'est plus ! " << endl;
+                    }
                 }
             } while (proposition != aDeviner);
 
-                if (proposition == aDeviner)
-                {
+                if (proposition == aDeviner){
                     cout << "partie terminée! "<< "en " << nombreTentatives << " tentatives" << endl;
                 }
-                else
-                {
+                else{
                     cout << "partie abandonnée ";
                 }
         }
