@@ -22,8 +22,7 @@ int main(){
 
              if (proposition < aDeviner){
                 i++;
-                cout <<"C'est plus !"<<endl;
-                cout << "Devinez le nombre : ";
+                cout <<"C'est plus !"<<endl << "Devinez le nombre :";
                 cin >> proposition;
                 if(proposition > 9999 || proposition < 0){
                     cout << "Veuillez rentrer un nombre compris entre 10000 et 0 :";
@@ -34,8 +33,7 @@ int main(){
             }
             else if (proposition > aDeviner){
                 i++;
-                cout <<"C'est moins !" <<endl;
-                cout << "Devinez le nombre : ";
+                cout <<"C'est moins !" <<endl<<"Devinez le nombre :";
                 cin >> proposition;
                 if(proposition > 9999 || proposition < 0){
                     cout << "Veuillez rentrer un nombre compris entre 10000 et 0 :";
@@ -47,8 +45,7 @@ int main(){
         }while (proposition != aDeviner);
 
         i++;
-        cout << "Vous avez gagne" << endl;
-        cout << "Nombre de tentatives : " << i <<endl;
+        cout << "Vous avez gagne" << endl<< "Nombre de tentatives : " << i <<endl;
         proposition = 0;
         i = 0;
     }
