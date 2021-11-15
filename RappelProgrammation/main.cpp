@@ -24,7 +24,7 @@ cin >> choix;
 
 switch (choix)
     {
-    case 'j':
+    case static_cast<char>(CHOIXMENU::JOUER):
         cout << "C'est parti ! " << endl;
         for (auto aDeviner : {208, 42, 1984})
         {
