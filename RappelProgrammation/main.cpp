@@ -8,6 +8,26 @@ enum class CHOIXMENU {
     INCORRECT
 };
 
+CHOIXMENU demanderChoixMenu();
+
+const auto NOMBRE_MAX (10'000);
+const auto NOMBRE_MIN (0);
+
+CHOIXMENU demanderChoixMenu(){
+
+    char saisieChoix;
+
+    cin >> saisieChoix;
+
+    if(saisieChoix == static_cast<char>(CHOIXMENU::JOUER) || static_cast<char>(CHOIXMENU::QUITTER))
+    {
+        return static_cast<CHOIXMENU>(saisieChoix);
+    }
+    else
+    {
+        return CHOIXMENU::INCORRECT;
+    }
+}
 
 int main(){
 
@@ -16,24 +36,12 @@ cout << static_cast<char>(CHOIXMENU::JOUER) <<" : jouer" << endl;
 cout <<static_cast<char>(CHOIXMENU::QUITTER) <<" : quitter" << endl;
 
 
-const auto NOMBRE_MAX (10'000);
-const auto NOMBRE_MIN (0);
+
 
 
 auto choix{CHOIXMENU::JOUER}; // autre type, apostrophe simple caractère
 
-char saisieChoix;
-
-cin >> saisieChoix;
-
-if(saisieChoix == static_cast<char>(CHOIXMENU::JOUER) || static_cast<char>(CHOIXMENU::QUITTER))
-{
-    choix = static_cast<CHOIXMENU>(saisieChoix);
-}
-else
-{
-    choix = CHOIXMENU::INCORRECT;
-}
+choix = demanderChoixMenu();
 
 switch (choix)
     {
@@ -76,4 +84,3 @@ switch (choix)
     break;
     }
 }
-
