@@ -19,12 +19,21 @@ int main()
     int *monPointeur(&maVariable4);
     cout << maVariable4;
     cout << monPointeur <<endl;
-    *monPointeur = 457456;
-
+    *monPointeur = 457456; // va également modifier ma reference
 
     cout << monPointeur <<endl;
     cout << *monPointeur <<endl; // acceder a la valeur pointée
     cout << maVariable4 <<endl;
+
+    monPointeur = nullptr; // donne la valeur null a mon pointeur
+
+    if (monPointeur != nullptr){ // permet de vérifier si monPointeur pointe vers une adresse nulle
+
+    }
+
+    if(monPointeur ){ // permet de vérifier si monPointeur pointe vers une adresse nulle
+
+    }
 
 
 

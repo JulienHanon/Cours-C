@@ -1,65 +1,70 @@
 #include <iostream>
 
 using namespace std;
+
+enum class choixmenu {
+
+//    JOUER = 'j';
+   // QUITTER = 'q';
+};
+
+
 int main(){
 
+cout << "Bienvenue au juste prix" << endl;
+cout << "j: jouer" << endl;
+cout << "q: quitter" << endl;
 
-    int aDeviner[3] = {25, 34, 34};
-    int n = 0;
-    cout << "Selectionner un jeu :"<<endl<< "1 - Juste Prix";
-    cin >> n;
+const auto NOMBRE_MAX (10'000);
+const auto NOMBRE_MIN (0);
 
-       switch (n)
+
+auto choix{'j'}; // autre type, apostrophe simple caractère
+
+cin >> choix;
+
+switch (choix)
     {
-
-    case 1:
-        cout << "Bienvenue au juste prix " << endl;
-            for(int i : aDeviner){
-
-
-    auto proposition(0);
-    int nombreTentative = 0;
-
-
-        do {
-
-            cout << "Devinez le nombre : ";
-            cin >> proposition;
-
-            if(proposition < 10000 || proposition > 0){
-
-                if (proposition < i){
-                    nombreTentative++;
-                    cout <<"C'est plus !"<<endl;
+    case 'j':
+        cout << "C'est parti ! " << endl;
+        for (auto aDeviner : {208, 42, 1984})
+        {
+            auto proposition{0};
+            auto nombreTentatives{0};
+            do
+            {
+                cin >> proposition;
+                if (proposition >= NOMBRE_MIN && proposition < NOMBRE_MAX)
+                {
+                    nombreTentatives++;
+                if (proposition == aDeviner)
+                {
+                    cout << "Bravo! " << endl;
                 }
-                else if (proposition > i){
-                    nombreTentative++;
-                    cout <<"C'est moins !" <<endl;
+                else if (proposition > aDeviner)
+                {
+                    cout << "C'est moins ! " << endl;
                 }
-            }
-            else{
-               cout<< "Veuillez rentrez un chiffre situer entre 0 et 10000";
-            }
+                else
+                {
+                    cout << "C'est plus ! " << endl;
+                }
+                }
+            } while (proposition != aDeviner);
 
-        }while (proposition != i);
-
-
-        cout << "Vous avez gagne" << endl<< "Nombre de tentatives : " << nombreTentative <<endl;
-        proposition = 0;
-        nombreTentative = 0;
+                if (proposition == aDeviner)
+                {
+                    cout << "partie terminée! "<< "en " << nombreTentatives << " tentatives" << endl;
+                }
+                else
+                {
+                    cout << "partie abandonnée ";
+                }
+        }
+    break;
+    default :
+        cout << "Au revoir " << endl;
+    break;
     }
-
-    cout << "Partie termine"<<endl;
-
-    case 2:
-       cout <<"non";
-        break;
-    }
-
-
-
-
-    return 0;
-
-
 }
+
