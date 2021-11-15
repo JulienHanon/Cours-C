@@ -6,7 +6,7 @@ int main(){
 
     int aDeviner[3] = {25, 34, 34};
     int n = 0;
-    cout << "Selectionner un jeu :"<< "1 - Juste Prix";
+    cout << "Selectionner un jeu :"<<endl<< "1 - Juste Prix";
     cin >> n;
 
        switch (n)
