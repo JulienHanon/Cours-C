@@ -17,9 +17,14 @@ int main()
     auto maVariable4(45);
 
     int *monPointeur(&maVariable4);
+    cout << maVariable4;
+    cout << monPointeur <<endl;
+    *monPointeur = 457456;
+
 
     cout << monPointeur <<endl;
     cout << *monPointeur <<endl; // acceder a la valeur pointée
+    cout << maVariable4 <<endl;
 
 
 
