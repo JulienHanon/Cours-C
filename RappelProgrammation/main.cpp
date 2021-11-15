@@ -12,7 +12,8 @@ int main(){
 
 
 
-    for (int j = 0; j < 3; j++){
+    for (int j =  1; j < 4; j++){
+        cout <<"Partie numero " << j <<endl;
         cout <<"Rentrez le chiffre a deviner :";
         cin >> aDeviner;
         cout << "Devinez le nombre : ";
@@ -24,8 +25,8 @@ int main(){
                 cout <<"C'est plus !"<<endl;
                 cout << "Devinez le nombre : ";
                 cin >> nombre;
-                if(nombre > 10000){
-                    cout << " Veuillez rentrer un nombre inferieur a 10000 :";
+                if(nombre > 9999){
+                    cout << "Veuillez rentrer un nombre inferieur a 10000 :";
                     cin >> nombre;
 
                 }
@@ -36,8 +37,8 @@ int main(){
                 cout <<"C'est moins !" <<endl;
                 cout << "Devinez le nombre : ";
                 cin >> nombre;
-                if(nombre > 10000){
-                    cout << " Veuillez rentrer un nombre inferieur a 10000 :"<<endl;
+                if(nombre > 9999){
+                    cout << "Veuillez rentrer un nombre inferieur a 10000 :"<<endl;
                     cin >> nombre;
 
                 }
