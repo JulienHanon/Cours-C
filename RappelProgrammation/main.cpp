@@ -2,6 +2,15 @@
 
 using namespace std;
 int main(){
-    cout << 5 endl;
-    cout << "Bienvenue au juste prix ";
+
+    cout << "Bienvenue au juste prix " << endl;
+
+    auto aDeviner(0);
+
+    cin >> aDeviner;
+
+    cout << "Vous avez rentrez : "<< aDeviner;
+
+
+
 }
