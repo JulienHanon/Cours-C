@@ -37,7 +37,6 @@ int main()
 
                 lettreDejaEssayee = false;
                 lettresAEssayer[i] = '_';
-                cout<<lettreDejaEssayee<<endl;
             }
 
         }
@@ -62,13 +61,14 @@ int main()
             Partie = true;
         }
         if(NbLettreATrouver == 0){
+            cout<<"Vous avez trouver :"<<MotATrouver<<"."<<endl;
             cout<<"C'est gagner !"<<endl;
             Partie = true;
         }
         else  if (lettreDejaEssayee==true){
-            cout << "Vous avez deja essayer cette lettre !!!!!! !"<<endl;
+            cout << "Vous avez deja essayer cette lettre !"<<endl;
         }
-    }while(Partie = true);
+    }while(Partie == false);
 
     cout<<"Partie terminer";
 
