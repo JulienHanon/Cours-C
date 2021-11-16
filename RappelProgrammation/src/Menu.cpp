@@ -1,5 +1,5 @@
 #include "Menu.h"
-
+#includ "Jeu.h"
 #include <iostream>
 
 using namespace std;
@@ -24,18 +24,7 @@ void afficherMenu()
     cout << static_cast<char>(ChoixMenu::QUITTER) << ": quitter" << endl;
 }
 
-void afficherScore(){
 
-    int scores[3] = {5, 3, 2};
-    int scoresSize = sizeof(scores)/sizeof(scores[0]);
-    cout << "Score : ";
-        for (int i=0; i<scoresSize; i++){
-
-            cout << scores[i] <<", ";
-
-        }
-    cout << endl;
-}
 
 
 ChoixMenu demanderChoixMenu()

@@ -46,8 +46,8 @@ void jouerPartie(int leJustePrix, int max)
 
         cout << "partie terminée! "
              << "en " << nombreTentatives << " tentatives" <<endl;
-             score = nombreTentatives;
-             cout << score;
+
+
 
     }
     else
@@ -64,6 +64,19 @@ void jouerTroisParties()
         jouerPartie(aDeviner, BORNE_MAX);
     }
 }
+void afficherScore(){
 
+    int scores[3] = {5, 3, 2};
+    int indiceCourant(0);
+
+    int scoresSize = sizeof(scores)/sizeof(scores[0]);
+    cout << "Score : ";
+        for (int i=0; i<scoresSize; i++){
+
+            cout << scores[i] <<", ";
+
+        }
+    cout << endl;
+}
 
 

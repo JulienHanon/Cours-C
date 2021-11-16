@@ -13,7 +13,6 @@ enum class ChoixMenu
 
 void afficherMenu();
 
-void afficherScore();
 
 ChoixMenu demanderChoixMenu();
 
