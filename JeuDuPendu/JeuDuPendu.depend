@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1637068218 source:c:\users\torute ninaj\documents\cours_c\jeudupendu\main.cpp
+	<iostream>
+	<chrono>
+	<array>
+	<string>
+	<vector>
+
+1637066557 c:\users\torute ninaj\documents\cours_c\jeudupendu\fonction.h
+	<iostream>
+	<string>
+	<vector>
+	<fstream>
+
