@@ -40,6 +40,9 @@ int main()
         case ChoixMenu::JOUER_TROIS_PARTIES:
             jouerTroisParties();
             break;
+        case ChoixMenu::SCORES:
+            afficherScore();
+            break;
         case ChoixMenu::QUITTER:
             cout << "Au revoir " << endl;
             continuer = false;

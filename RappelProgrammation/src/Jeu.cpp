@@ -42,17 +42,10 @@ void jouerPartie(int leJustePrix, int max)
 
     if (proposition == leJustePrix)
     {
-        int scores[3] = {5, 3, 2};
-        int scoresSize = sizeof(scores)/sizeof(scores[0]);
+
         cout << "partie terminée! "
-             << "en " << nombreTentatives << " tentatives" <<endl
-             << "Score : ";
-              for (int i=0; i<scoresSize; i++){
+             << "en " << nombreTentatives << " tentatives" <<endl;
 
-                    cout << scores[i] <<", ";
-
-              }
-              cout << endl;
     }
     else
     {

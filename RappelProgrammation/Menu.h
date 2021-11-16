@@ -7,11 +7,13 @@ enum class ChoixMenu
     JOUER_FACILE = 'b',
     JOUER_TROIS_PARTIES = 'c',
     QUITTER = 'q',
+    SCORES = 's',
     INCORRECT
 };
 
 void afficherMenu();
 
+void afficherScore();
 
 ChoixMenu demanderChoixMenu();
 
