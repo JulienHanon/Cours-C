@@ -1,4 +1,10 @@
 # depslib dependency file v1.0
-1636991497 source:c:\users\torute ninaj\documents\cours_c\rappelprogrammation\main.cpp
+1637051941 source:c:\users\torute ninaj\documents\cours_c\rappelprogrammation\main.cpp
 	<iostream>
+	"Headers.h"
+	"Jeu.h"
+
+1637051574 c:\users\torute ninaj\documents\cours_c\rappelprogrammation\headers.h
+
+1637051991 c:\users\torute ninaj\documents\cours_c\rappelprogrammation\jeu.h
 

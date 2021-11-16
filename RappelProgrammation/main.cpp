@@ -1,92 +1,134 @@
 #include <iostream>
+#include "Headers.h"
+#include "Jeu.h"
 
 using namespace std;
+/************************************************************************************************************************************************/
 
-enum class CHOIXMENU {
-    JOUER = 'j',
+enum class ChoixMenu
+{
+    JOUER = 'a',
+    JOUER_FACILE = 'b',
+    JOUER_TROIS_PARTIES = 'c',
     QUITTER = 'q',
     INCORRECT
 };
 
-CHOIXMENU demanderChoixMenu();
+void demanderProposition(int &proposition)
+{
+    cin >> proposition;
+}
 
-
-
-const auto NOMBRE_MAX (10'000);
-const auto NOMBRE_MIN (0);
-
-CHOIXMENU demanderChoixMenu(){
-
+ChoixMenu demanderChoixMenu()
+{
     char saisieChoix;
-
     cin >> saisieChoix;
-
-    if(saisieChoix == static_cast<char>(CHOIXMENU::JOUER) || static_cast<char>(CHOIXMENU::QUITTER))
+    if (saisieChoix == static_cast<char>(ChoixMenu::JOUER) || saisieChoix == static_cast<char>(ChoixMenu::JOUER_FACILE) || saisieChoix == static_cast<char>(ChoixMenu::JOUER_TROIS_PARTIES) || saisieChoix == static_cast<char>(ChoixMenu::QUITTER))
     {
-        return static_cast<CHOIXMENU>(saisieChoix);
+        return static_cast<ChoixMenu>(saisieChoix);
     }
     else
     {
-        return CHOIXMENU::INCORRECT;
+        return ChoixMenu::INCORRECT;
     }
 }
 
-int * jouerTroisPartie () {
 
-    int aDeviner [3] = { 208, 52, 1984 };
-    return aDeviner;
-
-
-}
-
-int main(){
-
-cout << "Bienvenue au juste prix" << endl;
-cout << static_cast<char>(CHOIXMENU::JOUER) <<" : jouer" << endl;
-cout <<static_cast<char>(CHOIXMENU::QUITTER) <<" : quitter" << endl;
-
-auto choix{CHOIXMENU::JOUER}; // autre type, apostrophe simple caractère
-
-choix = demanderChoixMenu();
-
-switch (choix)
+void jouerPartie(int leJustePrix, int max)
+{
+    auto proposition{0};
+    auto nombreTentatives{0};
+    do
     {
-    case CHOIXMENU::JOUER:
-        cout << "C'est parti ! " << endl;
-        for (auto aDeviner : {208, 42, 1984})
+        cout << "Proposition? ";
+        demanderProposition(proposition);
+
+        cout << proposition;
+
+        if (proposition >= BORNE_MIN && proposition < max)
         {
-            auto proposition{0};
-            auto nombreTentatives{0};
-            do
+            nombreTentatives++;
+            if (proposition == leJustePrix)
             {
-                cin >> proposition;
-                if (proposition >= NOMBRE_MIN && proposition < NOMBRE_MAX){
-                    nombreTentatives++;
-                    if (proposition == aDeviner){
-                        cout << "Bravo! " << endl;
-                    }
-                    else if (proposition > aDeviner){
-                        cout << "C'est moins ! " << endl;
-                    }
-                    else{
-                        cout << "C'est plus ! " << endl;
-                    }
-                }
-            } while (proposition != aDeviner);
-
-                if (proposition == aDeviner){
-                    cout << "partie terminée! "<< "en " << nombreTentatives << " tentatives" << endl;
-                }
-                else{
-                    cout << "partie abandonnée ";
-                }
+                cout << "Bravo! " << endl;
+            }
+            else if (proposition > leJustePrix)
+            {
+                cout << "C'est moins ! " << endl;
+            }
+            else
+            {
+                cout << "C'est plus ! " << endl;
+            }
         }
-    break;
-    case CHOIXMENU::QUITTER:
-        cout << "Au revoir " << endl;
-    break;
-    case CHOIXMENU::INCORRECT:
+    } while (proposition != leJustePrix && proposition >= BORNE_MIN);
 
-    break;
+    if (proposition == leJustePrix)
+    {
+        cout << "partie terminée! "
+             << "en " << nombreTentatives << " tentatives" << endl;
+    }
+    else
+    {
+        cout << "partie abandonnée ";
     }
 }
+
+void jouerTroisParties()
+{
+    cout << "C'est parti ! " << endl;
+    for (auto aDeviner : {208, 42, 1984})
+    {
+        jouerPartie(aDeviner, BORNE_MAX);
+    }
+}
+
+void afficherMenu()
+{
+    cout << static_cast<char>(ChoixMenu::JOUER) << ": jouer" << endl;
+    // on ajoute les choix possible à l'affichage
+    cout << static_cast<char>(ChoixMenu::JOUER_FACILE) << ": jouer" << endl;
+    cout << static_cast<char>(ChoixMenu::JOUER_TROIS_PARTIES) << ": jouer" << endl;
+    cout << static_cast<char>(ChoixMenu::QUITTER) << ": quitter" << endl;
+}
+
+int main()
+{
+    const auto BORNE_MIN{0};
+    const auto BORNE_MAX{10'000};
+    cout << "Bienvenue au juste prix" << endl;
+
+    // on créé un booléen continuer
+    bool continuer(true);
+    // ici on insert la boucle while
+    while (continuer)
+    {
+
+        afficherMenu();
+
+        auto choix = demanderChoixMenu();
+
+        switch (choix)
+        {
+            // on met à jour le switch aussi
+        case ChoixMenu::JOUER:
+            jouerPartie(3000, BORNE_MAX);
+            break;
+        case ChoixMenu::JOUER_FACILE:
+            jouerPartie(250, BORNE_MAX_FACILE);
+            break;
+        case ChoixMenu::JOUER_TROIS_PARTIES:
+            jouerTroisParties();
+            break;
+        case ChoixMenu::QUITTER:
+            cout << "Au revoir " << endl;
+            continuer = false;
+            break;
+        case ChoixMenu::INCORRECT:
+        default:
+            return EXIT_FAILURE;
+        }
+    }
+    return EXIT_SUCCESS;
+}
+
