@@ -16,27 +16,28 @@ int main()
     int TailleMot(0), nbErreur(0), NbLettreATrouver(0);
     string MotATrouver, motCacher;
     char LettreUser;
-    bool lettreDejaEssayee =true;
     bool lettreEstTrouver = false;
-    MotATrouver = std::string("TEST");
+    bool Partie = false;
+    MotATrouver = std::string("OUI");
     TailleMot = MotATrouver.size();
     NbLettreATrouver = TailleMot;
     motCacher = MotATrouver;
-    for(int i=0; i<(TailleMot*2); i=i+2)	{
+    for(int i=0; i<(TailleMot); i++)	{
 		motCacher[i] = '_';
-		motCacher[i+1] = '_';
-	}
 
-    cout <<"Mot a chercher :"<<motCacher<<endl;
-    cout <<"Il vous reste "<<NbLettreATrouver<<" Lettres a trouver"<<endl;
-    cout <<"Saisir une lettre :";
-    cin >> LettreUser;
+	}
     do{
-        for(int i=0;i<=25;i++)	{ // parcours la tableau des lettres utilisable
+        bool lettreDejaEssayee =true;
+        cout <<"Mot a chercher :"<<motCacher<<endl;
+        cout <<"Il vous reste "<<NbLettreATrouver<<" Lettres a trouver"<<endl;
+        cout <<"Saisir une lettre :";
+        cin >> LettreUser;
+        for(int i=0;i<=25;i++)	{
             if(lettresAEssayer[i] == LettreUser){
 
                 lettreDejaEssayee = false;
                 lettresAEssayer[i] = '_';
+                cout<<lettreDejaEssayee<<endl;
             }
 
         }
@@ -44,27 +45,33 @@ int main()
             for(int i = 0; i<TailleMot; i++){ //
                 if(MotATrouver[i] == LettreUser){
                     lettreEstTrouver = true;
-                    motCacher[i*2] = MotATrouver[i];
-                    NbLettreATrouver--; //reduit de le nombre de lettre a trouver
+                    motCacher[i] = MotATrouver[i];
+                    NbLettreATrouver--;
                 }
             }
                 if (lettreEstTrouver == false){
-                        cout<<"nb erreur +1";
+                        cout<<"nb erreur :"<<endl;
                         nbErreur++;
+                        cout<<nbErreur<<endl;
                 }
 
-//                if (NbLettreATrouver == 0){
-//                    cout<<"C'est gagner";
-//                }
-
-
         }
-        else{
-            cout << "Vous avez deja essaye cette lettre !";
+        if(nbErreur == 6){
+            cout<<"C'est perdu"<<endl;
+            cout<<"La reponse etait :"<<MotATrouver<<"."<<endl;
+            Partie = true;
         }
-    }while(nbErreur !=6);
-    cout<<"C'est perdu !";
-    cout<<"La reponse etait :"<<MotATrouver<<"."<<endl;
+        if(NbLettreATrouver == 0){
+            cout<<"C'est gagner !"<<endl;
+            Partie = true;
+        }
+        else  if (lettreDejaEssayee==true){
+            cout << "Vous avez deja essayer cette lettre !!!!!! !"<<endl;
+        }
+    }while(Partie = true);
+
+    cout<<"Partie terminer";
+
 }
 
 
