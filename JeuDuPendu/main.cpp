@@ -16,7 +16,6 @@ int main()
     int TailleMot(0), nbErreur(0), NbLettreATrouver(0);
     string MotATrouver, motCacher;
     char LettreUser;
-    bool lettreEstTrouver = false;
     bool Partie = false;
     MotATrouver = std::string("OUI");
     TailleMot = MotATrouver.size();
@@ -30,11 +29,13 @@ int main()
     do{
         bool lettreEstTrouver = false;
         bool lettreDejaEssayee =true;
+
         cout<<"nb erreur :"<<nbErreur<<endl;
         cout <<"Mot a chercher :"<<motCacher<<endl;
         cout <<"Il vous reste "<<NbLettreATrouver<<" Lettres a trouver"<<endl;
         cout <<"Saisir une lettre :";
         cin >> LettreUser;
+
         for(int i=0;i<=25;i++)	{
             if(lettresAEssayer[i] == LettreUser){
 
@@ -43,6 +44,7 @@ int main()
             }
 
         }
+
         if(lettreDejaEssayee == false){
             for(int i = 0; i<TailleMot; i++){ //
                 if(MotATrouver[i] == LettreUser){
