@@ -15,6 +15,7 @@ void jouerPartie(int leJustePrix, int max)
 {
     auto proposition{0};
     auto nombreTentatives{0};
+    auto score{0};
     do
     {
         cout << "Proposition? ";
@@ -45,6 +46,8 @@ void jouerPartie(int leJustePrix, int max)
 
         cout << "partie terminée! "
              << "en " << nombreTentatives << " tentatives" <<endl;
+             score = nombreTentatives;
+             cout << score;
 
     }
     else
