@@ -12,13 +12,13 @@ int main()
 {
 
     cout << "Bienvenue dans le jeu du pendu !"<<endl;
-
+    using Duree = std::chrono::duration<double>;
     int TailleMot(0), nbErreur(0), NbLettreATrouver(0);
     string MotATrouver, motCacher;
     char LettreUser;
     bool lettreEstTrouver = false;
     bool Partie = false;
-    MotATrouver = std::string("HEXAKOSIOIHEXEKONTAHEXAPHOBIE");
+    MotATrouver = std::string("OUI");
     TailleMot = MotATrouver.size();
     NbLettreATrouver = TailleMot;
     motCacher = MotATrouver;
@@ -26,6 +26,7 @@ int main()
 		motCacher[i] = '_';
 
 	}
+	auto debutPartie = std::chrono::system_clock::now();
     do{
         bool lettreEstTrouver = false;
         bool lettreDejaEssayee =true;
@@ -70,6 +71,9 @@ int main()
             cout << "Vous avez deja essayer cette lettre !"<<endl;
         }
     }while(Partie == false);
+    auto finPartie = std::chrono::system_clock::now();
+    auto duree = std::chrono::duration_cast<Duree>(finPartie - debutPartie);
+    cout << "Durée de la partie : " << duree.count() << "s" << endl;
 
     cout<<"Partie terminer";
 
