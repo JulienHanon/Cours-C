@@ -1,4 +1,5 @@
 #include <iostream>
+#include <array>
 #include "Constante.h"
 #include "Jeu.h"
 #include "Menu.h"
@@ -6,8 +7,13 @@
 using namespace std;
 /************************************************************************************************************************************************/
 
+
+
+
+
 int main()
 {
+
     const auto BORNE_MIN{0};
     const auto BORNE_MAX{10'000};
     cout << "Bienvenue au juste prix" << endl;

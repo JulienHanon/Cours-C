@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void demanderProposition(int &proposition){
+inline demanderProposition(int &proposition){
 
     cin >> proposition;
 
@@ -42,8 +42,17 @@ void jouerPartie(int leJustePrix, int max)
 
     if (proposition == leJustePrix)
     {
+        int scores[3] = {5, 3, 2};
+        int scoresSize = sizeof(scores)/sizeof(scores[0]);
         cout << "partie terminée! "
-             << "en " << nombreTentatives << " tentatives" << endl;
+             << "en " << nombreTentatives << " tentatives" <<endl
+             << "Score : ";
+              for (int i=0; i<scoresSize; i++){
+
+                    cout << scores[i] <<", ";
+
+              }
+              cout << endl;
     }
     else
     {
