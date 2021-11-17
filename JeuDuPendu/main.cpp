@@ -21,7 +21,7 @@ int main()
     TailleMot = MotATrouver.size(); //stock la taille du mot a trouver
     NbLettreATrouver = TailleMot; // Nombre de lettres qu'il manque pour gagner
     motCacher = MotATrouver;
-    for(int i=0; i<(TailleMot); i++)	{ // va remplacer les caractere du mot a deviner "____"
+    for(int i=0; i<(TailleMot); i++)	{ // va remplacer les caractere du mot a deviner ____
 		motCacher[i] = '_';
 
 	}
