@@ -5,9 +5,14 @@
 #include <random>
 #include "Constantes.h"
 
-
-
 using namespace std;
+
+/**Variable globales */
+int TailleMot(0), nbErreur(0), NbLettreATrouver(0);
+string motCacher;
+char LettreUser; //va stocker le caractere qu'on va proposer
+bool Partie = false; // si true alors fin de la partie
+using Duree = std::chrono::duration<double>;
 
 int main()
 {
@@ -16,13 +21,8 @@ int main()
     srand(time(0));
     const string wordList[4] = { MOT1,MOT2,MOT3,MOT4 };
     string MotATrouver = wordList[rand() % 4];
-    using Duree = std::chrono::duration<double>;
-    int TailleMot(0), nbErreur(0), NbLettreATrouver(0);
-    string motCacher;
-    char LettreUser; //va stocker le caractere qu'on va proposer
-    bool Partie = false; // si true alors fin de la partie
-    TailleMot = MotATrouver.size(); //stock la taille du mot a trouver
-    NbLettreATrouver = TailleMot; // Nombre de lettres qu'il manque pour gagner
+    TailleMot = MotATrouver.size();
+    NbLettreATrouver = TailleMot;
     motCacher = MotATrouver;
     for(int i=0; i<(TailleMot); i++)	{ // va remplacer les caractere du mot a deviner ____
 		motCacher[i] = '_';

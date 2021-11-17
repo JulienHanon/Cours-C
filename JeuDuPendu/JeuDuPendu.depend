@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1637140908 source:c:\users\torute ninaj\documents\cours_c\jeudupendu\main.cpp
+1637144146 source:c:\users\torute ninaj\documents\cours_c\jeudupendu\main.cpp
 	<iostream>
 	<chrono>
 	<array>
@@ -14,4 +14,6 @@
 	<fstream>
 
 1637140450 c:\users\torute ninaj\documents\cours_c\jeudupendu\constantes.h
+
+1637143461 source:c:\users\torute ninaj\documents\cours_c\jeudupendu\fonction.cpp
 
