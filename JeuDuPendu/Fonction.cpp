@@ -26,7 +26,7 @@ void afficherPendu3() {
          << "|   "<<endl
          << "|   "<<endl
          << "|      " <<endl
-         << "__|__" <<endl;
+         << "|____" <<endl;
 
 }
 void afficherPendu4() {
@@ -36,7 +36,7 @@ void afficherPendu4() {
          << "|   "<<endl
          << "|   "<<endl
          << "|      " <<endl
-         << "__|__" <<endl;
+         << "|____" <<endl;
 
 }
 void afficherPendu5() {
@@ -46,7 +46,7 @@ void afficherPendu5() {
          << "|   |"<<endl
          << "|   "<<endl
          << "|      " <<endl
-         << "__|__" <<endl;
+         << "|____" <<endl;
 
 }
 void afficherPendu6() {
@@ -56,7 +56,7 @@ void afficherPendu6() {
          << "|   /|\\"<<endl
          << "|   / \\"<<endl
          << "|      " <<endl
-         << "__|__" <<endl;
+         << "|____" <<endl;
 
 }
 
