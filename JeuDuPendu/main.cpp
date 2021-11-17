@@ -4,25 +4,26 @@
 #include <string>
 #include <random>
 #include "Constantes.h"
-
-
+#include "Fonction.h"
 
 using namespace std;
+
+/**Variable globales */
+int TailleMot(0), nbErreur(0), NbLettreATrouver(0);
+string motCacher;
+char LettreUser; //va stocker le caractere qu'on va proposer
+bool Partie = false; // si true alors fin de la partie
+using Duree = std::chrono::duration<double>;
 
 int main()
 {
 
     cout << "Bienvenue dans le jeu du pendu !"<<endl;
-    srand(time(0));
+    srand(time(NULL));
     const string wordList[4] = { MOT1,MOT2,MOT3,MOT4 };
     string MotATrouver = wordList[rand() % 4];
-    using Duree = std::chrono::duration<double>;
-    int TailleMot(0), nbErreur(0), NbLettreATrouver(0);
-    string motCacher;
-    char LettreUser; //va stocker le caractere qu'on va proposer
-    bool Partie = false; // si true alors fin de la partie
-    TailleMot = MotATrouver.size(); //stock la taille du mot a trouver
-    NbLettreATrouver = TailleMot; // Nombre de lettres qu'il manque pour gagner
+    TailleMot = MotATrouver.size();
+    NbLettreATrouver = TailleMot;
     motCacher = MotATrouver;
     for(int i=0; i<(TailleMot); i++)	{ // va remplacer les caractere du mot a deviner ____
 		motCacher[i] = '_';
@@ -47,7 +48,6 @@ int main()
             }
 
         }
-
         if(lettreDejaEssayee == false){ //Si la lettre n'est pas deja essayer alors va parcourir le mot a trouver pour remplacer les _ par la bonne lettre et va reduire le nombre de lettre par le nombre de lettre remplacer
             for(int i = 0; i<TailleMot; i++){ //
                 if(MotATrouver[i] == LettreUser){
@@ -58,9 +58,30 @@ int main()
             }
                 if (lettreEstTrouver == false){ // si la lettre n'est pas trouver alors rajouter 1 erreur
                         nbErreur++;
-
                 }
-
+        switch(nbErreur){
+            case 1 :
+                afficherPendu1();
+                break;
+            case 2 :
+                afficherPendu2();
+                 break;
+            case 3 :
+               afficherPendu3();
+                 break;
+            case 4 :
+               afficherPendu4();
+                 break;
+            case 5 :
+              afficherPendu5();
+                 break;
+            case 6 :
+             afficherPendu6();
+                 break;
+            default:
+                afficherPendu();
+                break;
+    }
         }
         if(nbErreur == 6){          // si le nombre d'erreur atteint 6 alors partie se termine
             cout<<"C'est perdu"<<endl;
@@ -75,12 +96,16 @@ int main()
         else  if (lettreDejaEssayee==true){ //si la lettre rentrer a deja été faite alors renvoie le message suivant
             cout << "Vous avez deja essayer cette lettre !"<<endl;
         }
+
     }while(Partie == false);
     auto finPartie = std::chrono::system_clock::now();
     auto duree = std::chrono::duration_cast<Duree>(finPartie - debutPartie);
     cout << "Durée de la partie : " << duree.count() << "s" << endl; // affiche la durée de la partie
 
-    cout<<"Partie terminer";
+    cout<<"Partie terminer"<<endl;
+
+
+
 
 }
 
