@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1637136728 source:c:\users\torute ninaj\documents\cours_c\jeudupendu\main.cpp
+1637139300 source:c:\users\torute ninaj\documents\cours_c\jeudupendu\main.cpp
 	<iostream>
 	<chrono>
 	<array>
 	<string>
+	<random>
 	"Constantes.h"
 
 1637066557 c:\users\torute ninaj\documents\cours_c\jeudupendu\fonction.h
@@ -12,5 +13,5 @@
 	<vector>
 	<fstream>
 
-1637069568 c:\users\torute ninaj\documents\cours_c\jeudupendu\constantes.h
+1637139300 c:\users\torute ninaj\documents\cours_c\jeudupendu\constantes.h
 
