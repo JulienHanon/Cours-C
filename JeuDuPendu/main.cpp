@@ -10,7 +10,6 @@ using namespace std;
 
 int main()
 {
-
     cout << "Bienvenue dans le jeu du pendu !"<<endl;
     using Duree = std::chrono::duration<double>;
     int TailleMot(0), nbErreur(0), NbLettreATrouver(0);
