@@ -12,21 +12,15 @@ using namespace std;
 int main()
 {
 
-    srand(time(0));
-    const string wordList[4] = { MOT1,MOT2,MOT3 };
-
-    string MotATrouver = wordList[rand() % 4];
-
-    cout << MotATrouver << endl;
-
-
     cout << "Bienvenue dans le jeu du pendu !"<<endl;
+    srand(time(0));
+    const string wordList[4] = { MOT1,MOT2,MOT3,MOT4 };
+    string MotATrouver = wordList[rand() % 4];
     using Duree = std::chrono::duration<double>;
     int TailleMot(0), nbErreur(0), NbLettreATrouver(0);
     string motCacher;
     char LettreUser; //va stocker le caractere qu'on va proposer
     bool Partie = false; // si true alors fin de la partie
-    //MotATrouver = std::string("HEXAKOSIOIHEXEKONTAHEXAPHOBIE"); // mot a trouver (sera changer par la suite pour avoir un mot aléatoire
     TailleMot = MotATrouver.size(); //stock la taille du mot a trouver
     NbLettreATrouver = TailleMot; // Nombre de lettres qu'il manque pour gagner
     motCacher = MotATrouver;
@@ -42,7 +36,7 @@ int main()
         cout<<"nb erreur :"<<nbErreur<<endl;
         cout <<"Mot a chercher :"<<motCacher<<endl;
         cout <<"Il vous reste "<<NbLettreATrouver<<" Lettres a trouver"<<endl;
-        cout <<"Saisir une lettre :";
+        cout <<"Saisir une lettre (MASJUSCULE) :";
         cin >> LettreUser;
 
         for(int i=0;i<=25;i++)	{ //va parcourir la liste de des caractere possible et remplacer cette derniere par "_"
@@ -91,6 +85,8 @@ int main()
 }
 
 
+//decouper le code en fonction
+//rajouter image pendu (ajout d'un switch avec chaque possibilité en fonction du nombre d'erreur )
 
 
 
