@@ -2,6 +2,7 @@
 #include <chrono>
 #include <array>
 #include <string>
+#include <random>
 #include "Constantes.h"
 
 
@@ -11,13 +12,21 @@ using namespace std;
 int main()
 {
 
+    srand(time(0));
+    const string wordList[4] = { MOT1,MOT2,MOT3 };
+
+    string MotATrouver = wordList[rand() % 4];
+
+    cout << MotATrouver << endl;
+
+
     cout << "Bienvenue dans le jeu du pendu !"<<endl;
     using Duree = std::chrono::duration<double>;
     int TailleMot(0), nbErreur(0), NbLettreATrouver(0);
-    string MotATrouver, motCacher;
+    string motCacher;
     char LettreUser; //va stocker le caractere qu'on va proposer
     bool Partie = false; // si true alors fin de la partie
-    MotATrouver = std::string("OUI"); // mot a trouver (sera changer par la suite pour avoir un mot aléatoire
+    //MotATrouver = std::string("HEXAKOSIOIHEXEKONTAHEXAPHOBIE"); // mot a trouver (sera changer par la suite pour avoir un mot aléatoire
     TailleMot = MotATrouver.size(); //stock la taille du mot a trouver
     NbLettreATrouver = TailleMot; // Nombre de lettres qu'il manque pour gagner
     motCacher = MotATrouver;
